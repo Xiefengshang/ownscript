@@ -5,3 +5,5 @@ unzip gclone.zip
 mv ./gclone*/ gclone
 mv ./gclone/gclone /usr/bin/gclone
 chmod 777 /usr/bin/gclone
+rm -rf ./gclone
+rm -rf ./gclone.zip
