@@ -6,3 +6,4 @@
 `port.sh`为查看端口占用脚本  
 `kill.sh`为停止进程的脚本  
 `traceroute.sh`为回程线路检测脚本**仅供娱乐**  
+`swap.sh`为开启swap的脚本,从`Moerats`那边`copy`过来的(  
