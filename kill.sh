@@ -1,4 +1,5 @@
 #!/bin/bash
+# 获取端口
 while :; do
     read -rp "请输入需要查询的端口 " port_be_kill
     read -rp "确认需要查询的端口为$port_be_kill? 确认请输入Y,否则输入其他按键 " KEY
@@ -6,6 +7,7 @@ while :; do
 		break
 	fi
 done
+# 获取进程关键字
 while :; do
     read -rp "请输入进程相关关键字 " filter_content
     read -rp "确认进程相关关键字为$filter_content? 确认请输入Y,否则输入其他按键 " KEY
