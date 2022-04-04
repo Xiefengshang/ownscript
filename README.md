@@ -8,3 +8,22 @@
 `kill.sh`为停止进程的脚本  
 `traceroute.sh`为回程线路检测脚本**仅供娱乐**  
 `swap.sh`为开启swap的脚本,从`Moerats`那边`copy`过来的(  
+`speedtest-go.sh`为`speedtest-go`的搭建脚本,基于[这个库](https://github.com/mengskysama/speedtest-go),加了自定义端口以及自定义单IP 24h允许的流量。
+
+## 使用
+### 改密码
+```
+bash -c "$(curl -L https://github.com/Xiefengshang/ownscript/raw/main/chpass.sh)"
+```
+### ssh端口修改
+```
+bash -c "$(curl -L https://github.com/Xiefengshang/ownscript/raw/main/ssh.sh)"
+```
+### gclone安装
+```
+bash -c "$(curl -L https://github.com/Xiefengshang/ownscript/raw/main/gclone.sh)"
+```
+### speedtest-go安装
+```
+bash -c "$(curl -L https://github.com/Xiefengshang/ownscript/raw/main/speedtest-go.sh)"
+```
