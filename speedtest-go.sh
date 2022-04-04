@@ -9,9 +9,12 @@ tar -zxvf speedtest-go.tar.gz
 
 read -rp "你想要运行在哪个端口上?默认为9999:" port
 read -rp "请输入每个IP每24小时能跑的流量，以G为单位，默认为10G:" traffic
+read -rp "是否为只监听ipv6?ipv6 only机器必须是;是请输入小写的y:" ipv6case
 sed -i 's/10/'${traffic:-10}'/' ./settings.toml
 sed -i 's/9999/'${port:-9999}'/' ./settings.toml
-
+if [[ $ipv6case == "y" ]]; then
+    sed -i 's/bind_address=""/bind_address="::"/' ./settings.toml
+fi
 nohup ./speedtest-go -c settings.toml &
 rm -rf speedtest-go.tar.gz
 echo "测速端口为${port:-9999}"
