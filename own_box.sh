@@ -97,6 +97,7 @@ chmod +x chpass.sh
 chmod 777 chpass.sh
 blue "下载完成"
 blue "你也可以输入 bash chpass.sh 来手动运行"
+printf "\033c"
 bash chpass.sh
 }
 
@@ -107,6 +108,7 @@ chmod +x sshport.sh
 chmod 777 sshport.sh
 blue "下载完成"
 blue "你也可以输入 bash sshport.sh 来手动运行"
+printf "\033c"
 bash sshport.sh
 }
 
@@ -128,7 +130,7 @@ chmod +x portcheck.sh
 chmod 777 portcheck.sh
 blue "下载完成"
 blue "你也可以输入 bash portcheck.sh 来手动运行"
-cls
+printf "\033c"
 bash portcheck.sh
 }
 
@@ -139,7 +141,7 @@ chmod +x killprocess.sh
 chmod 777 killprocess.sh
 blue "下载完成"
 blue "你也可以输入 bash killprocess.sh 来手动运行"
-cls
+printf "\033c"
 bash killprocess.sh
 }
 
