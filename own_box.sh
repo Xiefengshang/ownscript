@@ -117,7 +117,7 @@ chmod +x process.sh
 chmod 777 process.sh
 blue "下载完成"
 blue "你也可以输入 bash process.sh 来手动运行"
-cls
+printf "\033c"
 bash process.sh
 }
 
