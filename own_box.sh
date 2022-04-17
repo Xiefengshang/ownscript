@@ -117,6 +117,7 @@ chmod +x process.sh
 chmod 777 process.sh
 blue "下载完成"
 blue "你也可以输入 bash process.sh 来手动运行"
+cls
 bash process.sh
 }
 
@@ -127,6 +128,7 @@ chmod +x portcheck.sh
 chmod 777 portcheck.sh
 blue "下载完成"
 blue "你也可以输入 bash portcheck.sh 来手动运行"
+cls
 bash portcheck.sh
 }
 
@@ -137,6 +139,7 @@ chmod +x killprocess.sh
 chmod 777 killprocess.sh
 blue "下载完成"
 blue "你也可以输入 bash killprocess.sh 来手动运行"
+cls
 bash killprocess.sh
 }
 
