@@ -32,3 +32,5 @@ bash -c "$(curl -L https://github.com/Xiefengshang/ownscript/raw/main/gclone.sh)
 ```
 bash -c "$(curl -L https://github.com/Xiefengshang/ownscript/raw/main/speedtest-go.sh)"
 ```
+### hzcloud dd win
+wget -O- "gz系统包连接" |gunzip| dd of=/dev/sda
