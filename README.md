@@ -16,6 +16,11 @@
 ```
 bash -c "$(curl -L https://github.com/Xiefengshang/ownscript/raw/main/own_box.sh)"
 ```
+### 网络优化脚本(`BBR`下载地址懒得改，还是NNR的)
+**偷自nnr.moe**
+```
+wget https://raw.githubusercontent.com/Xiefengshang/ownscript/main/tools.sh && bash tools.sh
+```
 ### 改密码
 ```
 bash -c "$(curl -L https://github.com/Xiefengshang/ownscript/raw/main/chpass.sh)"
