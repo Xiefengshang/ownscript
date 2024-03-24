@@ -21,6 +21,10 @@ bash -c "$(curl -L https://github.com/Xiefengshang/ownscript/raw/main/own_box.sh
 ```
 wget https://raw.githubusercontent.com/Xiefengshang/ownscript/main/tools.sh && bash tools.sh
 ```
+### 回程路由测试(源自[这位佬](https://github.com/Chennhaoo/Shell_Bash),仅作备份,优先使用他的脚本吧)
+```
+wget -N --no-check-certificate https://raw.githubusercontent.com/Xiefengshang/ownscript/main/AutoTrace.sh && chmod +x AutoTrace.sh && bash AutoTrace.sh
+```
 ### 改密码
 ```
 bash -c "$(curl -L https://github.com/Xiefengshang/ownscript/raw/main/chpass.sh)"
