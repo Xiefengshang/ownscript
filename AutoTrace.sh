@@ -660,25 +660,25 @@ BestTrace_bit(){
     mkdir "${BestTrace_dir}"
     echo -e "${Info} 当前目录建立 BestTrace 文件夹 !"
     if [[ ${bit} == "x64" ]]; then 
-        if ! wget --no-check-certificate -O ${BestTrace_dir}/besttrace_IP https://github.com/Xiefengshang/ownscript/raw/master/Besttrace/besttrace; then
+        if ! wget --no-check-certificate -O ${BestTrace_dir}/besttrace_IP https://github.com/Xiefengshang/ownscript/raw/main/Besttrace/besttrace; then
             echo -e "${Error} BestTrace_x64 下载失败 !" && exit 1
         else
             echo -e "${Info} BestTrace_x64 下载完成 !" | tee -a $log
         fi
     elif [[ ${bit} == "x86" ]]; then
-            if ! wget --no-check-certificate -O ${BestTrace_dir}/besttrace_IP https://github.com/Xiefengshang/ownscript/raw/master/Besttrace/besttrace32; then
+            if ! wget --no-check-certificate -O ${BestTrace_dir}/besttrace_IP https://github.com/Xiefengshang/ownscript/raw/main/Besttrace/besttrace32; then
             echo -e "${Error} BestTrace_x32 下载失败 !" && exit 1
         else
             echo -e "${Info} BestTrace_x32 下载完成 !" | tee -a $log
         fi 
     elif [[ ${bit} == "aarch64" ]]; then
-            if ! wget --no-check-certificate -O ${BestTrace_dir}/besttrace_IP https://github.com/Xiefengshang/ownscript/raw/master/Besttrace/besttracearm; then
+            if ! wget --no-check-certificate -O ${BestTrace_dir}/besttrace_IP https://github.com/Xiefengshang/ownscript/raw/main/Besttrace/besttracearm; then
             echo -e "${Error} BestTrace_ARM 下载失败 !" && exit 1
         else
             echo -e "${Info} BestTrace_ARM 下载完成 !" | tee -a $log
         fi
     elif [[ ${bit} == "arm" ]]; then
-            if ! wget --no-check-certificate -O ${BestTrace_dir}/besttrace_IP https://github.com/Xiefengshang/ownscript/raw/master/BestTrace/besttracearm; then
+            if ! wget --no-check-certificate -O ${BestTrace_dir}/besttrace_IP https://github.com/Xiefengshang/ownscript/raw/main/BestTrace/besttracearm; then
             echo -e "${Error} BestTrace_ARM 下载失败 !" && exit 1
         else
             echo -e "${Info} BestTrace_ARM 下载完成 !" | tee -a $log
