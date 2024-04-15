@@ -19,3 +19,5 @@ cp -n $sshd_file /etc/ssh/sshd_config.bak
         sed -i "s@^Port.*@Port $SSH_PORT@" /etc/ssh/sshd_config
     fi
 fi
+# 重启sshd
+systemctl restart sshd
