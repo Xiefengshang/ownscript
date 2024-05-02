@@ -15,11 +15,11 @@
 ### 没存在该仓库的
 #### hyperspeed测速
 ```
-wget -O hyperspeed.sh "https://github.com/veoco/bim-core/raw/main/hyperspeed.sh" && bash hyperspeed.sh
+rm -rf hyperspeed.sh && wget -O hyperspeed.sh "https://github.com/veoco/bim-core/raw/main/hyperspeed.sh" && bash hyperspeed.sh
 ```
 #### i-abc测速
 ```
-bash <(curl -sL https://github.com/i-abc/Speedtest/raw/main/speedtest.sh)
+rm -rf speedtest.sh && wget -O speedtest.sh "https://github.com/i-abc/Speedtest/raw/main/speedtest.sh" && bash speedtest.sh
 ```
 ### 自用所有脚本合集
 ```
