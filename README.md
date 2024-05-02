@@ -12,6 +12,15 @@
 `speedtest-go.sh`为`speedtest-go`的搭建脚本,基于[这个库](https://github.com/mengskysama/speedtest-go),加了自定义端口以及自定义单IP 24h允许的流量。  
 
 ## 使用
+### 没存在该仓库的
+#### hyperspeed测速
+```
+wget -O hyperspeed.sh "https://github.com/veoco/bim-core/raw/main/hyperspeed.sh" && bash hyperspeed.sh
+```
+#### i-abc测速
+```
+bash <(curl -sL https://github.com/i-abc/Speedtest/raw/main/speedtest.sh)
+```
 ### 自用所有脚本合集
 ```
 bash -c "$(curl -L https://github.com/Xiefengshang/ownscript/raw/main/own_box.sh)"
