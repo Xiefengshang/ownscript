@@ -25,6 +25,15 @@ rm -rf speedtest.sh && wget -O speedtest.sh "https://github.com/i-abc/Speedtest/
 ```
 bash -c "$(curl -L https://github.com/Xiefengshang/ownscript/raw/main/own_box.sh)"
 ```
+### speedtest 二进制文件
+#### x86_64
+```
+wget -O speedtest "https://github.com/Xiefengshang/ownscript/raw/main/speedtest/speedtest" && chmod +x speedtest
+```
+#### ARM
+```
+wget -O speedtest "https://github.com/Xiefengshang/ownscript/raw/main/speedtest/speedtestarm" && chmod +x speedtest
+```
 ### 网络优化脚本(`BBR`下载地址懒得改，还是NNR的)
 **偷自nnr.moe**
 ```
