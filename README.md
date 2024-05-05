@@ -25,6 +25,20 @@ rm -rf speedtest.sh && wget -O speedtest.sh "https://github.com/i-abc/Speedtest/
 ```
 bash -c "$(curl -L https://github.com/Xiefengshang/ownscript/raw/main/own_box.sh)"
 ```
+### besttrace 二进制文件
+#### x86_64
+```
+wget -O besttrace "https://github.com/Xiefengshang/ownscript/raw/main/Besttrace/besttrace" && chmod +x besttrace
+```
+#### x32
+```
+wget -O besttrace "https://github.com/Xiefengshang/ownscript/raw/main/Besttrace/besttrace32" && chmod +x besttrace
+```
+#### arm
+```
+wget -O besttrace "https://github.com/Xiefengshang/ownscript/raw/main/Besttrace/besttracearm" && chmod +x besttrace
+```
+
 ### speedtest 二进制文件
 #### x86_64
 ```
