@@ -400,7 +400,7 @@ NT_Ipv4_BIG_mtr_CN(){
     elif [ "$2" = "icmp" ] || [ "$2" = "ICMP" ]; then
         echo -e "\n$5 Tracecroute to $4 (ICMP Mode, Max $3 Hop, IPv4)" | tee -a $log
         echo -e "===================================================================" | tee -a $log
-        ${Nexttrace_file} -M -g cn -q 1 -n --psize 10485760 -m $3 $1 | tee -a $log
+        ${Nexttrace_file} -M -g cn -q 1 -n --psize 15000 -m $3 $1 | tee -a $log
     else
         echo -e "${Error} 参数错误，请输入 TCP 或 ICMP" && exit 1
     fi   
@@ -628,7 +628,23 @@ IPv6_IP(){
 #BestTrace 参数设置
 BestTrace_Mode(){
     #使用TCP SYN进行探测，如需ICMP，直接改为ICMP即可
-    Net_Mode="TCP"
+    #Net_Mode="TCP"
+    echo "请选择您想要使用的模式："
+    echo "1. TCP"
+    echo "2. ICMP"
+    read -p "请输入选项（1 或 2）: " choice
+    case $choice in
+        1)
+            Net_Mode="TCP"
+            ;;
+        2)
+            Net_Mode="ICMP"
+            ;;
+        *)
+            echo "无效的选项，请重新运行脚本并输入有效选项。"
+            exit 1
+            ;;
+    esac
     #最大跳数（最大生存时间值），默认 30
     Hop_Mode="30"
 }
@@ -636,7 +652,23 @@ BestTrace_Mode(){
 #Nexttrace 参数设置
 Nexttrace_Mode(){
     #使用TCP SYN进行探测，如需ICMP，直接改为ICMP即可
-    Net_Mode="TCP"
+    #Net_Mode="TCP"
+    echo "请选择您想要使用的模式："
+    echo "1. TCP"
+    echo "2. ICMP"
+    read -p "请输入选项（1 或 2）: " choice
+    case $choice in
+        1)
+            Net_Mode="TCP"
+            ;;
+        2)
+            Net_Mode="ICMP"
+            ;;
+        *)
+            echo "无效的选项，请重新运行脚本并输入有效选项。"
+            exit 1
+            ;;
+    esac
     #最大跳数（最大生存时间值），默认 30
     Hop_Mode="30"
 }
@@ -1107,7 +1139,7 @@ echo -e " 服务器信息（优先显示IPv4，仅供参考）：
 ————————————————————————————————————
 ${Green_font_prefix} 1. ${Font_color_suffix}本机 IPv4 三网回程路由 中文 输出 BestTrace库（默认）
 ${Red_font_prefix} 2. ${Font_color_suffix}本机 IPv4 三网回程路由 中文 输出 ${Red_font_prefix}Nexttrace库${Font_color_suffix}
-${Red_font_prefix} 3. ${Font_color_suffix}本机 IPv4 三网TCP大包回程路由 中文 输出 ${Red_font_prefix}Nexttrace库${Font_color_suffix}
+${Red_font_prefix} 3. ${Font_color_suffix}本机 IPv4 三网大包回程路由 中文 输出 ${Red_font_prefix}Nexttrace库${Font_color_suffix}
 ${Green_font_prefix} 4. ${Font_color_suffix}本机 IPv4 三网回程路由 英文 输出 BestTrace库
 
 ${Red_font_prefix} 5. ${Font_color_suffix}本机 IPv6 三网回程路由 中文 输出 ${Red_font_prefix}Nexttrace库${Font_color_suffix}
