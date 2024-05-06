@@ -777,8 +777,9 @@ echo -e " 请选择需要的测试项（TCP Mode）
 ${Green_font_prefix} 1. ${Font_color_suffix}本机到指定 IPv4 路由 中文 输出 BestTrace库
 ${Green_font_prefix} 2. ${Font_color_suffix}本机到指定 IPv4 路由 英文 输出 BestTrace库
 ${Green_font_prefix} 3. ${Font_color_suffix}本机到指定 IPv4 路由 中文 输出 Nexttrace库（可指定端口）
-${Green_font_prefix} 4. ${Font_color_suffix}本机到指定 IPv6 路由 中文 输出 Nexttrace库（可指定端口）
-${Green_font_prefix} 5. ${Font_color_suffix}本机到指定 IPv6 路由 英文 输出 Nexttrace库（可指定端口）
+${Green_font_prefix} 4. ${Font_color_suffix}本机到指定 IPv4 TCP大包路由 中文 输出 Nexttrace库（可指定端口）
+${Green_font_prefix} 5. ${Font_color_suffix}本机到指定 IPv6 路由 中文 输出 Nexttrace库（可指定端口）
+${Green_font_prefix} 6. ${Font_color_suffix}本机到指定 IPv6 路由 英文 输出 Nexttrace库（可指定端口）
     "
     stty erase '^H' && read -p " 请输入数字 [1-5] (默认: 取消):" Specify_IP_num
     [[ -z ${Specify_IP_num} ]] && echo "已取消..." && exit 1 
@@ -798,17 +799,22 @@ ${Green_font_prefix} 5. ${Font_color_suffix}本机到指定 IPv6 路由 英文 �
         sleep 3s
         NT_Specify_IPv4_CN_Mtr
     elif [[ ${Specify_IP_num} == "4" ]]; then
+		echo -e "${Info} 您选择的是：本机到指定 IPv4 路由 中文 输出 Nexttrace库（可指定端口），即将开始测试!
+		"
+        sleep 3s
+        NT_Specify_IPv4_TCPBIG_CN_Mtr
+    elif [[ ${Specify_IP_num} == "5" ]]; then
 		echo -e "${Info} 您选择的是：本机到指定 IPv6 路由 中文 输出 Nexttrace库（可指定端口），即将开始测试!
 		"
         sleep 3s	
         NT_Specify_IPv6_CN_Mtr
-    elif [[ ${Specify_IP_num} == "5" ]]; then
+    elif [[ ${Specify_IP_num} == "6" ]]; then
 		echo -e "${Info} 您选择的是：本机到指定 IPv6 路由 英文 输出 Nexttrace库（可指定端口），即将开始测试!
 		"
         sleep 3s
         NT_Specify_IPv6_EN_Mtr
 	else
-		echo -e "${Error} 请输入正确的数字 [1-5]" && exit 1
+		echo -e "${Error} 请输入正确的数字 [1-6]" && exit 1
 	fi
 }
 
@@ -982,7 +988,35 @@ NT_Specify_IPv4_CN_Mtr(){
     #删除Nexttrace执行文件
     Nexttrace_Dle       
 }
-
+#Nexttrace IPv4 到指定IPTCP大包路由测试 中文输出，可指定端口(若需修改TCP/ICMP，可修改Nexttrace_Mode代码段)
+NT_Specify_IPv4_TCPBIG_CN_Mtr(){   
+    #IP输入 端口输入
+    Int_IPV4
+    Int_IPV4_P
+    #删除之前的日志及执行文件 
+    AutoTrace_Start
+    #下载Nexttrace主程序
+    Nexttrace_Ver
+    #载入Nexttrace参数
+    Nexttrace_Mode
+    clear
+    #开始测试到指定IPv4路由  
+    if [ "${Net_Mode}" = "tcp" ] || [ "${Net_Mode}" = "TCP" ]; then
+        echo -e "\nTraceroute to "${Int_IPV4_IP}", Port:"${Int_IPV4_Prot}" (TCP Mode, Max "${Hop_Mode}" Hop, IPv4)" | tee -a $log
+        echo -e "============================================================" | tee -a $log
+        ${Nexttrace_file} -M -g cn -q 1 -n -T -p "${Int_IPV4_Prot}" -m "${Hop_Mode}" "${Int_IPV4_IP}" | tee -a $log --psize 10485760
+    elif [ "$2" = "icmp" ] || [ "$2" = "ICMP" ]; then
+        echo -e "\nTracecroute to "${Int_IPV4_IP}", Port:"${Int_IPV4_Prot}" (ICMP Mode, Max "${Hop_Mode}" Hop, IPv4)" | tee -a $log
+        echo -e "============================================================" | tee -a $log
+        ${Nexttrace_file} -M -g cn -q 1 -n -p "${Int_IPV4_Prot}" -m "${Hop_Mode}" "${Int_IPV4_IP}" | tee -a $log --psize 10485760
+    else
+        echo -e "${Error} 参数错误，请输入 TCP 或 ICMP" && exit 1
+    fi  
+    #保留IPv4路由日志
+    echo -e "${Info} 路由路径已保存在${Green_font_prefix} ${log} ${Font_color_suffix}中，如不需要请自行删除 !" 	
+    #删除Nexttrace执行文件
+    Nexttrace_Dle       
+}
 #Nexttrace IPv6 到指定IP路由测试 中文输出，可指定端口(若需修改TCP/ICMP，可修改Nexttrace_Mode代码段)
 NT_Specify_IPv6_CN_Mtr(){   
     #IP输入 端口输入
