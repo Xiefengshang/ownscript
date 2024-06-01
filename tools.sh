@@ -244,9 +244,9 @@ get_system_info() {
 }
 
 menu() {
+#${Green_font_prefix}1.${Font_color_suffix} 安装BBR原版内核(已经是5.x的不需要)
   echo -e "\
 ${Green_font_prefix}0.${Font_color_suffix} 升级脚本
-#${Green_font_prefix}1.${Font_color_suffix} 安装BBR原版内核(已经是5.x的不需要)
 ${Green_font_prefix}2.${Font_color_suffix} TCP窗口调优
 ${Green_font_prefix}3.${Font_color_suffix} 开启内核转发
 ${Green_font_prefix}4.${Font_color_suffix} 系统资源限制调优
