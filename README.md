@@ -25,6 +25,10 @@ rm -rf speedtest.sh && wget -O speedtest.sh "https://github.com/i-abc/Speedtest/
 ```
 bash -c "$(curl -L https://github.com/Xiefengshang/ownscript/raw/main/own_box.sh)"
 ```
+### 删除各类平台监控
+```
+bash -c "$(curl -L https://github.com/Xiefengshang/ownscript/raw/main/dlm.sh)"
+```
 ### besttrace 二进制文件
 #### x86_64
 ```
