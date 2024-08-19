@@ -61,6 +61,10 @@ wget https://raw.githubusercontent.com/Xiefengshang/ownscript/main/tools.sh && b
 ```
 wget -N --no-check-certificate https://raw.githubusercontent.com/Xiefengshang/ownscript/main/AutoTrace.sh && chmod +x AutoTrace.sh && bash AutoTrace.sh
 ```
+### 添加swap内存
+```
+bash -c "$(curl -L https://github.com/Xiefengshang/ownscript/raw/main/swap.sh)"
+```
 ### 改密码
 ```
 bash -c "$(curl -L https://github.com/Xiefengshang/ownscript/raw/main/chpass.sh)"
