@@ -8,7 +8,7 @@ sed -i '/^ExecStart=/ s/$/ --report-delay 4 --skip-conn --skip-procs /' "$SERVIC
 echo "将哪吒上报延迟调整为4s，并跳过进程数和连接数统计"
 # 检查sed命令是否执行成功
 if [ $? -eq 0 ]; then
-    echo "修改成功，正在重新加载systemd配置..."
+    echo "修改成功，正在重新加载systemd配置并重启哪吒监控agent进程..."
     # 重新加载systemd的配置文件
     systemctl daemon-reload && systemctl restart nezha-agent.service
 else
